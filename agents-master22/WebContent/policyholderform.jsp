@@ -1,134 +1,176 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="com.capstone.*"%>
+<%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
 
-        #main {
-
-
-            width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            font-family: verdana;
-
-        }
-
-        aside {
-            float: left;
-            width: 30%;
-            margin-bottom: 20px;
-            height: 100%;
-        }
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
 
 
-        main {
-            float: right;
-            width: 70%;
-            margin-bottom: 20px;
+/*
+ * Base structure
+ */
 
-        }
+html,
+body {
+  height: 100%;
+  background-color: #fff;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
 
-        h1,
-        p,
-        img,
-        header,
-        nav {
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  /*height: 100%; */
+  /*min-height: 100%;*/
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+input {
+color: black;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
 
-            display: block;
-        }
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
 
-        header {
-            color: white;
-            background-color: black;
 
-        }
+/*
+ * Header
+ */
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-        nav {
-            width: 1000px;
-            height: 60px;
-            margin: 0 auto 20px;
-            bottom: 50px;
-        }
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
 
-        nav ul {
-            list-style-type: none;
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
 
-        }
 
-        nav ul li {
-            float: left;
-            padding: 16px;
-        }
+/*
+ * Cover
+ */
 
-        nav ul li a {
-            text-decoration: none;
-            color: inherit;
-        }
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
 
-      
-        button:hover {
-            background-color: white;
-            color: rgb(255, 115, 0);
-            border-bottom: 5px solid rgb(255, 115, 0);
+/*
+ * Affix and center
+ */
 
-        }
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
 
-        #tab {
-            list-style: none;
-        }
+}
 
-        #tab li {
-            padding: 10px 0;
-        }
-    </style>
+</style>
 </head>
-
 <body>
 
-    <nav class="nav ">
-        <a class="nav-link active bg-danger text-white"" href="policyholderlist">Home</a>
-        <a class="nav-link bg-danger text-white"" href=" #">Account</a>
-        <a class="nav-link bg-danger text-white"" href="listagent">Agents</a>
-        <a class="nav-link bg-danger text-white"" href="newagent">Register Agent</a>
-    	<a class="nav-link bg-danger text-white"" href="policyholderlist">Policy Holders</a>
-        <a class="nav-link bg-danger text-white"" href="newpolicyholder">Register Policy Holder</a>
-        
-        
-    </nav>
-    <div id="main">
-        <aside>
+    <div class="site-wrapper">
 
-            <img src="https://www.designmantic.com/logo-images/166882.png?company=Company+Name&slogan=&verify=1"
-                height="100" height="100" style="padding: 10px; margin: 10 auto;">
-            <h1>Cap Car Company</h1>
+      <div class="site-wrapper-inner">
 
-            <ul id="tab">
+        <div class="container">
 
-
-            </ul>
-
-
-
-
-        </aside>
-        <main>
-        <h1>Policy Holder Manager</h1>
-        <h2>
-            <a href="/Capstoneproject2/newpolicyholder">Add New Policy Holder</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/Capstoneproject2/listpolicy_holder">List All Policy Holders</a>
-             
-        </h2>
+          <div class="masthead clearfix">
+            <div class="container inner">
+              <h3 class="masthead-brand">Cook Reid Insurance Agency</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="listagent">Agents</a></li>
+                  <li><a href="newagent">Add Agent</a></li>
+                  <li><a href="policyholderlist">Policy Holders</a></li>
+                  <li><a href="newpolicyholder">Add Policy Holder</a></li>
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+  <h1>Policy Holder Manager</h1>
+     
         <c:if test="${policy_holder != null}">
             <form action="/Capstoneproject2/updatepolicyholder" method="post">
         </c:if>
@@ -153,7 +195,7 @@
             <tr>
                 <th scope="col">First Name: </th>
                 <td>
-                    <input type="text" name="firstName" size="45"
+                    <input type="text" name="firstName" size="45" required="required"
                             value="<c:out value='${policy_holder.firstName}' />"
                         />
                 </td>
@@ -161,7 +203,7 @@
               <tr>
                 <th>Middle Name: </th>
                 <td>
-                    <input type="text" name="middleName" size="45"
+                    <input type="text" name="middleName" size="45" required="required"
                             value="<c:out value='${policy_holder.middleName}' />"
                         />
                 </td>
@@ -169,7 +211,7 @@
               <tr>
                 <th>Last Name: </th>
                 <td>
-                    <input type="text" name="lastName" size="45"
+                    <input type="text" name="lastName" size="45" required="required"
                             value="<c:out value='${policy_holder.lastName}' />"
                         />
                 </td>
@@ -177,7 +219,7 @@
             <tr>
                 <th>Date of Birth: </th>
                 <td>
-                    <input type="text" name="DOB" size="45"
+                    <input type="text" name="DOB" size="45" required="required"
                             value="<c:out value='${policy_holder.DOB}' />"
                         />
                 </td>
@@ -185,7 +227,7 @@
           <tr>
                 <th>Password: </th>
                 <td>
-                    <input type="text" name="password" size="45"
+                    <input type="text" name="password" size="45" required="required"
                             value="<c:out value='${policy_holder.password}' />"
                         />
                 </td>
@@ -194,7 +236,7 @@
               <tr>
                 <th>Email Address: </th>
                 <td>
-                    <input type="text" name="emailAddress" size="45"
+                    <input type="text" name="emailAddress" size="45" required="required"
                             value="<c:out value='${policy_holder.emailAddress}' />"
                         />
                 </td>
@@ -202,7 +244,7 @@
             <tr>
                 <th>Policy Key: </th>
                 <td>
-                    <input type="text" name="policy_key" size="45"
+                    <input type="text" name="policy_key" size="45" required="required"
                             value="<c:out value='${policy_holder.policy_key}' />"
                         />
                 </td>
@@ -218,10 +260,13 @@
             </tr>
         </table>
         </form>
-        </main>
+          <div class="inner cover">
+         
+          </div>
 
+        </div>
 
+      </div>
+
+    </div>
 </body>
-<script src="js.js">console.log(policy_key)</script>
-
-</html>

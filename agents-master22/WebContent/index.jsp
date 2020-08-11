@@ -47,7 +47,7 @@ body {
 .site-wrapper {
   display: table;
   width: 100%;
-  height: 100vh;
+  height: 600px;
   background-color: #333;
   /*height: 100%; */
   /*min-height: 100%;*/
@@ -166,52 +166,97 @@ body {
               </nav>
             </div>
           </div>
-
-          <div class="inner cover">
-           <h1>Agent Management</h1>
+ <h1>Agent Management</h1>
         <h2>
             <a href="/Capstoneproject2/newagent">Add New Agent</a>
             &nbsp;&nbsp;&nbsp;
             <a href="/Capstoneproject2/listagent">List All Agents</a>
              
         </h2>
-         <table class="table">
-  <thead >
-    <tr>
-      <th scope="col">Agent ID</th>
-      <th scope="col">Agent First Name</th>
-      <th scope="col">Agent Middle Name</th>
-      <th scope="col">Agent Last Name</th> 
-      <th scope="col">Password</th>
-      <th scope="col">Phone Number</th>
-      <th scope="col">Email Address</th>
-	  <th scope="col">Make changes</th>
-      
-      
-      
-    </tr>
-  </thead>
-  <tbody>
-           <c:forEach var="agent" items="${listAgent}">
-                <tr>
-           <td><c:out value="${agent.agent_id}" /></td>
-      				<td><c:out value="${agent.firstName}" /></td>
-                    <td><c:out value="${agent.middleName}" /></td>
-                    <td><c:out value="${agent.lastName}" /></td>
-                    <td><c:out value="${agent.password}" /></td>
-                    <td><c:out value="${agent.phone}" /></td>
-                    <td><c:out value="${agent.emailAddress}" /></td>
-      <td>
-                        <a href="/Capstoneproject2/editagent?agent_id=<c:out value='${agent.agent_id}' />">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/Capstoneproject2/deleteagent?agent_id=<c:out value='${agent.agent_id}' />">Delete</a>                     
-                    </td>
-      
-    </tr>
-    </c:forEach>
-   
-  </tbody>
-</table>
+        <c:if test="${agent != null}">
+            <form action="updateagent" method="post">
+        </c:if>
+        <c:if test="${agent == null}">
+            <form action="insertagent" method="post">
+        </c:if>
+        <table class="table" border="1" cellpadding="5">
+        
+            <caption>
+                <h2>
+                    <c:if test="${agent != null}">
+                    	<form action="updateagent" method="post">
+                    
+                    </c:if>
+                    <c:if test="${agent == null}">
+                       <form action="insertagent" method="post">
+                    
+                        
+                    </c:if>
+                </h2>
+            </caption>
+                <c:if test="${agent != null}">
+                    <input type="hidden" name="agent_id" value="<c:out value='${agent.agent_id}' />" />
+                </c:if> 
+                          
+            <tr>
+                <th scope="col">First Name: </th>
+                <td>
+                    <input type="text" name="firstName" size="45"
+                            value="<c:out value='${agent.firstName}' />"
+                        />
+                </td>
+            </tr>
+              <tr>
+                <th>Middle Name: </th>
+                <td>
+                    <input type="text" name="middleName" size="45"
+                            value="<c:out value='${agent.middleName}' />"
+                        />
+                </td>
+            </tr>
+              <tr>
+                <th>Last Name: </th>
+                <td>
+                    <input type="text" name="lastName" size="45"
+                            value="<c:out value='${agent.lastName}' />"
+                        />
+                </td>
+            </tr>
+          <tr>
+                <th>Password: </th>
+                <td>
+                    <input type="text" name="password" size="45"
+                            value="<c:out value='${agent.password}' />"
+                        />
+                </td>
+            </tr>
+              <tr>
+                <th>Phone Number: </th>
+                <td>
+                    <input type="text" name="phone" size="45"
+                            value="<c:out value='${agent.phone}' />"
+                        />
+                </td>
+            </tr>
+              <tr>
+                <th>Email Address: </th>
+                <td>
+                    <input type="text" name="emailAddress" size="45"
+                            value="<c:out value='${agent.emailAddress}' />"
+                        />
+                </td>
+            </tr>
+          
+            <tr>
+                <td colspan="2" align="center">
+                <input class="btn btn-outline-danger" type="submit" value="Save" />
+                
+                </td>
+            </tr>
+        </table>
+        </form>
+          <div class="inner cover">
+         
           </div>
 
         </div>
