@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Cook Ried Insurance Agency</title>
 <style>
 a,
 a:focus,
@@ -47,7 +47,7 @@ body {
 .site-wrapper {
   display: table;
   width: 100%;
-  height: 600px;
+  height: 100VH;
   background-color: #333;
   /*height: 100%; */
   /*min-height: 100%;*/
@@ -154,109 +154,22 @@ body {
 
           <div class="masthead clearfix">
             <div class="container inner">
-              <h3 class="masthead-brand">Cook Reid Insurance Agency</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="listagent">Agents</a></li>
-                  <li><a href="newagent">Add Agent</a></li>
-                  <li><a href="policyholderlist">Policy Holders</a></li>
-                  <li><a href="newpolicyholder">Add Policy Holder</a></li>
-                  
+                  <li class="active"><a href="#">Admin Login</a></li>
+                  <li><a href="#">Agent Login</a></li>
+                  <li><a href="#">Client Login</a></li>
                 </ul>
               </nav>
             </div>
           </div>
- <h1>Agent Management</h1>
-        <h2>
-            <a href="/Capstoneproject2/newagent">Add New Agent</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/Capstoneproject2/listagent">List All Agents</a>
-             
-        </h2>
-        <c:if test="${agent != null}">
-            <form action="updateagent" method="post">
-        </c:if>
-        <c:if test="${agent == null}">
-            <form action="insertagent" method="post">
-        </c:if>
-        <table class="table" border="1" cellpadding="5">
-        
-            <caption>
-                <h2>
-                    <c:if test="${agent != null}">
-                    	<form action="updateagent" method="post">
-                    
-                    </c:if>
-                    <c:if test="${agent == null}">
-                       <form action="insertagent" method="post">
-                    
-                        
-                    </c:if>
-                </h2>
-            </caption>
-                <c:if test="${agent != null}">
-                    <input type="hidden" name="agent_id" value="<c:out value='${agent.agent_id}' />" />
-                </c:if> 
-                          
-            <tr>
-                <th scope="col">First Name: </th>
-                <td>
-                    <input type="text" name="firstName" size="45"
-                            value="<c:out value='${agent.firstName}' />"
-                        />
-                </td>
-            </tr>
-              <tr>
-                <th>Middle Name: </th>
-                <td>
-                    <input type="text" name="middleName" size="45"
-                            value="<c:out value='${agent.middleName}' />"
-                        />
-                </td>
-            </tr>
-              <tr>
-                <th>Last Name: </th>
-                <td>
-                    <input type="text" name="lastName" size="45"
-                            value="<c:out value='${agent.lastName}' />"
-                        />
-                </td>
-            </tr>
-          <tr>
-                <th>Password: </th>
-                <td>
-                    <input type="text" name="password" size="45"
-                            value="<c:out value='${agent.password}' />"
-                        />
-                </td>
-            </tr>
-              <tr>
-                <th>Phone Number: </th>
-                <td>
-                    <input type="text" name="phone" size="45"
-                            value="<c:out value='${agent.phone}' />"
-                        />
-                </td>
-            </tr>
-              <tr>
-                <th>Email Address: </th>
-                <td>
-                    <input type="text" name="emailAddress" size="45"
-                            value="<c:out value='${agent.emailAddress}' />"
-                        />
-                </td>
-            </tr>
-          
-            <tr>
-                <td colspan="2" align="center">
-                <input class="btn btn-outline-danger" type="submit" value="Save" />
-                
-                </td>
-            </tr>
-        </table>
-        </form>
+
           <div class="inner cover">
-         
+            <h1 class="cover-heading">Cook Ried Insurance Agency</h1>
+            <p class="lead">Fortune 500 Insurance Agency</p>
+            <p class="lead">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=CookRied@gmail.com" class="btn btn-lg btn-default">Contact us</a>
+            </p>
           </div>
 
         </div>

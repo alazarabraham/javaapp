@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Cook Ried Insurance Agency</title>
 <style>
 a,
 a:focus,
