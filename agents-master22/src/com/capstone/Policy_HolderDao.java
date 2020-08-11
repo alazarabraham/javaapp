@@ -43,7 +43,7 @@ public class Policy_HolderDao {
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 	        statement.setString(1, policy_holder.getFirstName());
 	        statement.setString(2, policy_holder.getMiddleName());
-	        statement.setString(3, policy_holder.getMiddleName());
+	        statement.setString(3, policy_holder.getLastName());
 	        statement.setString(4, policy_holder.getDOB());
 	        statement.setString(5, policy_holder.getPassword());
 	        statement.setString(6, policy_holder.getEmailAddress());

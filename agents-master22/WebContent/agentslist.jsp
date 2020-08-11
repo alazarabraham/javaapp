@@ -93,14 +93,14 @@ body {
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
   background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
+   border-bottom-color: red;
+  border-bottom-color: red;
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
   color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: red;
 }
 
 @media (min-width: 768px) {
@@ -161,7 +161,8 @@ body {
                   <li><a href="newagent">Add Agent</a></li>
                   <li><a href="policyholderlist">Policy Holders</a></li>
                   <li><a href="newpolicyholder">Add Policy Holder</a></li>
-                  
+                  <li><a href="policylist">Policies</a></li>
+                  <li><a href="newpolicy">Add Policies</a></li>
                 </ul>
               </nav>
             </div>

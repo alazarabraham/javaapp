@@ -18,14 +18,6 @@ a:hover {
 }
 
 /* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
 
 
 /*
@@ -96,14 +88,14 @@ color: black;
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
   background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
+  border-bottom-color: red;
+  border-bottom-color: red;
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
   color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: red;
 }
 
 @media (min-width: 768px) {
@@ -164,6 +156,8 @@ color: black;
                   <li><a href="newagent">Add Agent</a></li>
                   <li><a href="policyholderlist">Policy Holders</a></li>
                   <li><a href="newpolicyholder">Add Policy Holder</a></li>
+                  <li><a href="policylist">Policies</a></li>
+                  <li><a href="newpolicy">Add Policies</a></li>
                   
                 </ul>
               </nav>
@@ -217,9 +211,9 @@ color: black;
                 </td>
             </tr>
             <tr>
-                <th>Date of Birth: </th>
+                <th>Date of Birth (mm/dd/yyyy): </th>
                 <td>
-                    <input type="text" name="DOB" size="45" required="required"
+                    <input  name="DOB" size="45" required="required" 
                             value="<c:out value='${policy_holder.DOB}' />"
                         />
                 </td>
@@ -227,7 +221,7 @@ color: black;
           <tr>
                 <th>Password: </th>
                 <td>
-                    <input type="text" name="password" size="45" required="required"
+                    <input type="password" name="password" size="45" required="required"
                             value="<c:out value='${policy_holder.password}' />"
                         />
                 </td>
@@ -236,7 +230,7 @@ color: black;
               <tr>
                 <th>Email Address: </th>
                 <td>
-                    <input type="text" name="emailAddress" size="45" required="required"
+                    <input type="email" name="emailAddress" size="45" required="required"
                             value="<c:out value='${policy_holder.emailAddress}' />"
                         />
                 </td>
@@ -254,7 +248,7 @@ color: black;
           
             <tr>
                 <td colspan="2" align="center">
-                <input class="btn btn-outline-danger" type="submit" value="Save" />
+                <input class="btn tn btn-danger" type="submit" value="Save" />
                 
                 </td>
             </tr>

@@ -20,6 +20,7 @@ public class AgentControllerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private AgentDao agentDao;
     private Policy_HolderDao policy_holderDao;
+    private PolicyDao policyDao;
  
     public void init() {
         String jdbcURL = getServletContext().getInitParameter("jdbcURL");
@@ -28,7 +29,7 @@ public class AgentControllerServlet extends HttpServlet {
  
         agentDao = new AgentDao(jdbcURL, jdbcUsername, jdbcPassword);
         policy_holderDao = new Policy_HolderDao(jdbcURL, jdbcUsername,jdbcPassword);
- 
+        policyDao = new PolicyDao(jdbcURL, jdbcUsername,jdbcPassword);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -73,6 +74,24 @@ public class AgentControllerServlet extends HttpServlet {
                 break;
             case "/updatepolicyholder":
                 updatePolicy_Holder(request, response);
+                break;
+            case "/policylist":
+            	listPolicy(request, response);
+                break;
+            case "/newpolicy":
+            	showNewPolicyForm(request, response);
+                break;
+            case "/insertpolicy":
+                insertPolicy(request, response);
+                break;
+            case "/deletepolicy":
+                deletePolicy(request, response);
+                break;
+            case "/editpolicy":
+                showPolicyEditForm(request, response);
+                break;
+            case "/updatepolicy":
+                updatePolicy(request, response);
                 break;
             default:
                 listAgent(request, response);
@@ -209,6 +228,59 @@ public class AgentControllerServlet extends HttpServlet {
         Policy_Holder policy_holder = new Policy_Holder(PH_key);
         policy_holderDao.deletePolicy_Holder(policy_holder);
         response.sendRedirect("policyholderlist");
+ 
+    }
+    private void listPolicy(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+    	List<Policy> listPolicy = policyDao.listAllPolicy();
+        request.setAttribute("listPolicy", listPolicy);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("policylist.jsp");
+        dispatcher.forward(request, response);
+    }
+    private void showNewPolicyForm(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("policyform.jsp");
+        dispatcher.forward(request, response);
+    }
+ 
+    private void showPolicyEditForm(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ServletException, IOException {
+        int policy_key = Integer.parseInt(request.getParameter("policy_key"));
+        Policy existingPolicy = policyDao.getPolicy(policy_key);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("policyform.jsp");
+        request.setAttribute("policy", existingPolicy);
+        dispatcher.forward(request, response);
+ 
+    }
+ 
+    private void insertPolicy(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        String type = request.getParameter("type");
+        String time_period = request.getParameter("time_period");
+      
+        Policy policy = new Policy(type,time_period);
+        policyDao.insertPolicy(policy);
+        response.sendRedirect("policylist");
+        
+    }
+ 
+    private void updatePolicy(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int policy_key = Integer.parseInt(request.getParameter("policy_key"));
+        String type = request.getParameter("type");
+        String time_period = request.getParameter("time_period");
+
+        Policy policy = new Policy(policy_key, type, time_period);
+        policyDao.updatePolicy(policy);
+        response.sendRedirect("policylist");
+    }
+ 
+    private void deletePolicy(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int policy_key = Integer.parseInt(request.getParameter("policy_key"));
+        Policy policy = new Policy(policy_key);
+        policyDao.deletePolicy(policy);
+        response.sendRedirect("policylist");
  
     }
     

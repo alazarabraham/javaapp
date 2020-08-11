@@ -162,46 +162,37 @@ body {
           </div>
 
           <div class="inner cover">
-            <h1>Policy Holder Manager</h1>
+            <h1>Policy Manager</h1>
         <h2>
-            <a href="/Capstoneproject2/newpolicy_holder">Add New Policy Holder</a>
+            <a href="/Capstoneproject2/newpolicy">Add New Policy </a>
             &nbsp;&nbsp;&nbsp;
-            <a href="/Capstoneproject2/listpolicy_holder">List All Policy Holders</a>
+            <a href="/Capstoneproject2/listpolicy">List All Policy </a>
              
         </h2>
          <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Policy Holder ID</th>
-      <th scope="col">Policy Holder First Name</th>
-      <th scope="col">Policy Holder Middle Name</th>
-      <th scope="col">Policy Holder Last Name</th> 
-      <th scope="col">Policy Holder Date of Birth</th>
-      <th scope="col">Policy Holder Password</th>
-	  <th scope="col">Policy Holder Email Address</th>
-	  <th scope="col">Policy key</th>
-	  
+      <th scope="col">Policy ID</th>
+      <th scope="col">Policy Type</th>
+      <th scope="col">Policy Time Period</th>
+     
       
       
       
     </tr>
   </thead>
   <tbody>
-           <c:forEach var="policy_holder" items="${listPolicy_Holder}">
+           <c:forEach var="policy" items="${listPolicy}">
                 <tr>
-           <td><c:out value="${policy_holder.PH_key}" /></td>
-      				<td><c:out value="${policy_holder.firstName}" /></td>
-                    <td><c:out value="${policy_holder.middleName}" /></td>
-                    <td><c:out value="${policy_holder.lastName}" /></td>
-                    <td><c:out value="${policy_holder.DOB}" /></td>
-                    <td><c:out value="${policy_holder.password}" /></td>
-                    <td><c:out value="${policy_holder.emailAddress}" /></td>
-                    <td><c:out value="${policy_holder.type}" /></td>
+           <td><c:out value="${policy.policy_key}" /></td>
+      				<td><c:out value="${policy.type}" /></td>
+                    <td><c:out value="${policy.time_period}" /></td>
+                   
                     
       <td>
-                        <a href="/Capstoneproject2/editpolicyholder?PH_key=<c:out value='${policy_holder.PH_key}' />">Edit</a>
+                        <a href="/Capstoneproject2/editpolicy?policy_key=<c:out value='${policy.policy_key}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/Capstoneproject2/deletepolicyholder?PH_key=<c:out value='${policy_holder.PH_key}' />">Delete</a>                     
+                        <a href="/Capstoneproject2/deletepolicy?policy_key=<c:out value='${policy.policy_key}' />">Delete</a>                     
                     </td>
       
     </tr>
