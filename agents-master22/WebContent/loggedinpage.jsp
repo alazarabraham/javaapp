@@ -47,7 +47,7 @@ body {
 .site-wrapper {
   display: table;
   width: 100%;
-  height: 100VH;
+  height: 100vh;
   background-color: #333;
   /*height: 100%; */
   /*min-height: 100%;*/
@@ -93,14 +93,14 @@ body {
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
   background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
+   border-bottom-color: red;
+  border-bottom-color: red;
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
   color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: red;
 }
 
 @media (min-width: 768px) {
@@ -110,6 +110,9 @@ body {
   .masthead-nav {
     float: right;
   }
+}
+b{
+color:red;
 }
 
 
@@ -154,22 +157,23 @@ body {
 
           <div class="masthead clearfix">
             <div class="container inner">
+              <h3 class="masthead-brand">Cook Reid Insurance Agency</h3>
+              
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="adminlogin.jsp">Admin Login</a></li>
-                  <li><a href="#">Agent Login</a></li>
-                  <li><a href="#">Client Login</a></li>
+                  <li class="active"><a href="listagent">Agents</a></li>
+                  <li><a href="newagent">Add Agent</a></li>
+                  <li><a href="policyholderlist">Policy Holders</a></li>
+                  <li><a href="newpolicyholder">Add Policy Holder</a></li>
+                  <li><a href="policylist">Policies</a></li>
+                  <li><a href="newpolicy">Add Policies</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Cook Ried Insurance Agency</h1>
-            <p class="lead">Fortune 500 Insurance Agency</p>
-            <p class="lead">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=CookRied@gmail.com" class="btn btn-lg btn-default">Contact us</a>
-            </p>
+           <h1>Welcome <b>${admin.fullname}</b> (${admin.email})</h1>
           </div>
 
         </div>

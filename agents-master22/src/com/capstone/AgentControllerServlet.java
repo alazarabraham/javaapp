@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
  
 /**
  * ControllerServlet.java
@@ -21,6 +22,7 @@ public class AgentControllerServlet extends HttpServlet {
     private AgentDao agentDao;
     private Policy_HolderDao policy_holderDao;
     private PolicyDao policyDao;
+    private AdminDao adminDao;
  
     public void init() {
         String jdbcURL = getServletContext().getInitParameter("jdbcURL");
@@ -90,6 +92,7 @@ public class AgentControllerServlet extends HttpServlet {
             case "/editpolicy":
                 showPolicyEditForm(request, response);
                 break;
+
             case "/updatepolicy":
                 updatePolicy(request, response);
                 break;
@@ -283,6 +286,7 @@ public class AgentControllerServlet extends HttpServlet {
         response.sendRedirect("policylist");
  
     }
+    
     
  
    

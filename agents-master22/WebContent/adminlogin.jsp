@@ -10,7 +10,13 @@
 
 <meta charset="ISO-8859-1">
 <title>Cook Ried Insurance Agency</title>
-<style>
+<style><script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+
 a,
 a:focus,
 a:hover {
@@ -64,6 +70,9 @@ body {
 /* Padding for spacing */
 .inner {
   padding: 30px;
+}
+input{
+color:black;
 }
 
 
@@ -156,7 +165,7 @@ body {
             <div class="container inner">
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="adminlogin.jsp">Admin Login</a></li>
+                  <li class="active"><a href="#">Admin Login</a></li>
                   <li><a href="#">Agent Login</a></li>
                   <li><a href="#">Client Login</a></li>
                 </ul>
@@ -165,11 +174,23 @@ body {
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">Cook Ried Insurance Agency</h1>
-            <p class="lead">Fortune 500 Insurance Agency</p>
-            <p class="lead">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=CookRied@gmail.com" class="btn btn-lg btn-default">Contact us</a>
-            </p>
+           <h1>Admin Login</h1>
+           <form action="login" method="post" class="form-inline">
+  				<div class="form-group mb-2">
+    				<label for="email" class="sr-only">Email</label>
+    				<input type="email" name="email" class="form-control" id="inputPassword2" placeholder="Email">
+
+  				</div>
+  				<div class="form-group mx-sm-3 mb-2">
+    				<label for="password" class="sr-only">Password</label>
+    				<input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Password">
+  					
+  				</div>
+  				<button type="submit" class="btn btn-danger mb-2">Log In</button>
+				</form>
+				<br>${message}
+            		<br><br> 
+        
           </div>
 
         </div>
@@ -178,4 +199,29 @@ body {
 
     </div>
 </body>
+<script type="text/javascript">
+ 
+    $(document).ready(function() {
+        $("#loginForm").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+         
+                password: "required",
+            },
+             
+            messages: {
+                email: {
+                    required: "Please enter email",
+                    email: "Please enter a valid email address"
+                },
+                 
+                password: "Please enter password"
+            }
+        });
+ 
+    });
+</script>
 </html>
