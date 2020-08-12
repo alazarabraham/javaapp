@@ -18,14 +18,7 @@ a:hover {
 }
 
 /* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
+
 
 
 /*
@@ -93,14 +86,14 @@ body {
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
   background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
+  border-bottom-color: red;
+  border-bottom-color: red;
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
   color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: red;
 }
 
 @media (min-width: 768px) {
@@ -168,7 +161,7 @@ body {
             <h1 class="cover-heading">Cook Ried Insurance Agency</h1>
             <p class="lead">Fortune 500 Insurance Agency</p>
             <p class="lead">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=CookRied@gmail.com" class="btn btn-lg btn-default">Contact us</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=CookRied@gmail.com" class="btn btn-lg btn-danger">Contact us</a>
             </p>
           </div>
 
