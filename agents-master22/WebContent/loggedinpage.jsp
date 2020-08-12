@@ -173,7 +173,10 @@ color:red;
           </div>
 
           <div class="inner cover">
-           <h1>Welcome <b>${admin.fullname}</b> (${admin.email})</h1>
+           <h1>Welcome <b>${admin.fullname}</b></h1>
+           <form action="${pageContext.request.contextPath}/logout">
+    			<input class="btn btn-danger" type="submit" value="Log out" />
+			</form>
           </div>
 
         </div>

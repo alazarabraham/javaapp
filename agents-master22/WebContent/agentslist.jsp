@@ -141,7 +141,9 @@ body {
   }
 
 }
-
+#home{
+text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -154,8 +156,10 @@ body {
 
           <div class="masthead clearfix">
             <div class="container inner">
-              <h3 class="masthead-brand">Cook Reid Insurance Agency</h3>
-              
+            
+              <h3 class="masthead-brand"><a id="home" href="loggedinpage.jsp">Cook Reid Insurance Agency</a></h3>
+              <div class="container">
+    
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="listagent">Agents</a></li>

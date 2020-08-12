@@ -136,7 +136,9 @@ color: black;
   }
 
 }
-
+#home{
+text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -149,7 +151,7 @@ color: black;
 
           <div class="masthead clearfix">
             <div class="container inner">
-              <h3 class="masthead-brand">Cook Reid Insurance Agency</h3>
+              <h3 class="masthead-brand"><a id="home" href="loggedinpage.jsp">Cook Reid Insurance Agency</a></h3>
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="listagent">Agents</a></li>
@@ -163,6 +165,8 @@ color: black;
               </nav>
             </div>
           </div>
+          
+          
   <h1>Policy Holder Manager</h1>
      
         <c:if test="${policy_holder != null}">
