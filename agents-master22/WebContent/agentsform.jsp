@@ -173,7 +173,7 @@ text-decoration: none;
         <c:if test="${agent == null}">
             <form action="insertagent" method="post">
         </c:if>
-        <table class="table" border="1" cellpadding="5">
+        <table class="table table-bordered" border="1" cellpadding="5">
         
             <caption>
                 <h2>
