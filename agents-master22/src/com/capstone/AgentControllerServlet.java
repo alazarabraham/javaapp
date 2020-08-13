@@ -77,6 +77,24 @@ public class AgentControllerServlet extends HttpServlet {
             case "/updatepolicyholder":
                 updatePolicy_Holder(request, response);
                 break;
+            case "/agentpolicyholderlist":
+            	AgentlistPolicy_Holder(request, response);
+                break;
+            case "/agentnewpolicyholder":
+            	AgentshowNewPolicy_HolderForm(request, response);
+                break;
+            case "/agentinsertpolicyholder":
+                AgentinsertPolicy_Holder(request, response);
+                break;
+            case "/agentdeletepolicyholder":
+                AgentdeletePolicy_Holder(request, response);
+                break;
+            case "/agenteditpolicyholder":
+                AgentshowPolicy_HolderEditForm(request, response);
+                break;
+            case "/agentupdatepolicyholder":
+                AgentupdatePolicy_Holder(request, response);
+                break;
             case "/policylist":
             	listPolicy(request, response);
                 break;
@@ -174,6 +192,7 @@ public class AgentControllerServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("policyholderlist.jsp");
         dispatcher.forward(request, response);
     }
+
     private void showNewPolicy_HolderForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("policyholderform.jsp");
@@ -219,7 +238,7 @@ public class AgentControllerServlet extends HttpServlet {
 
 
  
-        Policy_Holder policy_holder = new Policy_Holder(PH_key, firstName, middleName, lastName,  password, DOB,  emailAddress,policy_key);
+        Policy_Holder policy_holder = new Policy_Holder(PH_key, firstName, middleName, lastName,  DOB, password ,  emailAddress,policy_key);
         policy_holderDao.updatePolicy_Holder(policy_holder);
         response.sendRedirect("policyholderlist");
     }
@@ -284,6 +303,74 @@ public class AgentControllerServlet extends HttpServlet {
         Policy policy = new Policy(policy_key);
         policyDao.deletePolicy(policy);
         response.sendRedirect("policylist");
+ 
+    }
+    
+    private void AgentlistPolicy_Holder(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+    	List<Policy_Holder> AgentlistPolicy_Holder = policy_holderDao.listAllPolicy_Holders();
+        request.setAttribute("agentlistPolicy_Holder", AgentlistPolicy_Holder);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("agentpolicyholderlist.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void AgentshowNewPolicy_HolderForm(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("agentpolicyholderform.jsp");
+        dispatcher.forward(request, response);
+    }
+ 
+    private void AgentshowPolicy_HolderEditForm(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ServletException, IOException {
+        int PH_key = Integer.parseInt(request.getParameter("PH_key"));
+        Policy_Holder existingPolicy_Holder = policy_holderDao.getPolicy_Holder(PH_key);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("agentpolicyholderform.jsp");
+        request.setAttribute("policy_holder", existingPolicy_Holder);
+        dispatcher.forward(request, response);
+ 
+    }
+ 
+    private void AgentinsertPolicy_Holder(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        String firstName = request.getParameter("firstName");
+        String middleName = request.getParameter("middleName");
+        String lastName = request.getParameter("lastName");
+        String DOB = request.getParameter("DOB");
+        String password = request.getParameter("password");   
+        String emailAddress = request.getParameter("emailAddress");
+        int policy_key = Integer.parseInt(request.getParameter("policy_key"));
+        Policy_Holder policy_holder = new Policy_Holder(firstName,middleName,lastName,DOB,password, emailAddress, policy_key);
+        policy_holderDao.insertPolicy_Holder(policy_holder);
+        response.sendRedirect("agentpolicyholderlist");
+        
+    }
+ 
+    private void AgentupdatePolicy_Holder(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int PH_key = Integer.parseInt(request.getParameter("PH_key"));
+        String firstName = request.getParameter("firstName");
+        String middleName = request.getParameter("middleName");
+        String lastName = request.getParameter("lastName");
+        String DOB = request.getParameter("DOB");
+        String password = request.getParameter("password");
+        String emailAddress = request.getParameter("emailAddress");
+        int policy_key = Integer.parseInt(request.getParameter("policy_key"));
+        String type = request.getParameter("type");
+
+
+ 
+        Policy_Holder policy_holder = new Policy_Holder(PH_key, firstName, middleName, lastName,  DOB, password ,  emailAddress,policy_key);
+        policy_holderDao.updatePolicy_Holder(policy_holder);
+        response.sendRedirect("agentpolicyholderlist");
+    }
+ 
+    private void AgentdeletePolicy_Holder(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int PH_key = Integer.parseInt(request.getParameter("PH_key"));
+ 
+        Policy_Holder policy_holder = new Policy_Holder(PH_key);
+        policy_holderDao.deletePolicy_Holder(policy_holder);
+        response.sendRedirect("agentpolicyholderlist");
  
     }
     

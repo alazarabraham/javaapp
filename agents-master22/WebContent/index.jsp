@@ -150,7 +150,7 @@ body {
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="adminlogin.jsp">Admin Login</a></li>
-                  <li><a href="#">Agent Login</a></li>
+                  <li><a href="agentlogin.jsp">Agent Login</a></li>
                   <li><a href="#">Client Login</a></li>
                 </ul>
               </nav>

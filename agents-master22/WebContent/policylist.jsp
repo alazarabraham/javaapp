@@ -168,7 +168,7 @@ text-decoration: none;
         <h2>
             <a href="/Capstoneproject2/newpolicy">Add New Policy </a>
             &nbsp;&nbsp;&nbsp;
-            <a href="/Capstoneproject2/listpolicy">List All Policy </a>
+            <a href="/Capstoneproject2/policylist">List All Policy </a>
              
         </h2>
          <table class="table">

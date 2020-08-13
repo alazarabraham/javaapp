@@ -191,7 +191,6 @@ text-decoration: none;
       <th scope="col">Password</th>
       <th scope="col">Phone Number</th>
       <th scope="col">Email Address</th>
-	  <th scope="col">Make changes</th>
       
       
       

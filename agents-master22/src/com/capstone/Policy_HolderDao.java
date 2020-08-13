@@ -115,7 +115,8 @@ public class Policy_HolderDao {
 	        statement.setString(6, policy_holder.getEmailAddress());
 	        statement.setInt(7, policy_holder.getPolicy_key());
 	        statement.setString(8, policy_holder.getEmailAddress());
-	        System.out.println("update email "+ policy_holder.getEmailAddress());
+	        System.out.println("DOB: "+policy_holder.getDOB());
+	        System.out.println("password: "+policy_holder.getPassword());
 
 	        boolean rowUpdated = statement.executeUpdate() > 0;
 	        statement.close();

@@ -10,7 +10,13 @@
 
 <meta charset="ISO-8859-1">
 <title>Cook Ried Insurance Agency</title>
-<style>
+<style><script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+
 a,
 a:focus,
 a:hover {
@@ -18,6 +24,14 @@ a:hover {
 }
 
 /* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
 
 
 /*
@@ -39,7 +53,7 @@ body {
 .site-wrapper {
   display: table;
   width: 100%;
-  height: 100vh;
+  height: 100VH;
   background-color: #333;
   /*height: 100%; */
   /*min-height: 100%;*/
@@ -56,6 +70,9 @@ body {
 /* Padding for spacing */
 .inner {
   padding: 30px;
+}
+input{
+color:black;
 }
 
 
@@ -85,14 +102,14 @@ body {
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
   background-color: transparent;
-   border-bottom-color: red;
-  border-bottom-color: red;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
 }
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
   color: #fff;
-  border-bottom-color: red;
+  border-bottom-color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -133,9 +150,6 @@ body {
   }
 
 }
-#home{
-text-decoration: none;
-}
 
 </style>
 </head>
@@ -149,69 +163,34 @@ text-decoration: none;
 
           <div class="masthead clearfix">
             <div class="container inner">
-              <h3 class="masthead-brand"><a id="home" href="loggedinpage.jsp">Cook Reid Insurance Agency</a></h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="listagent">Agents</a></li>
-                  <li><a href="newagent">Add Agent</a></li>
-                  <li><a href="policyholderlist">Policy Holders</a></li>
-                  <li><a href="newpolicyholder">Add Policy Holder</a></li>
-                  <li><a href="policylist">Policies</a></li>
-                  <li><a href="newpolicy">Add Policies</a></li>
-                  
+                  <li class="active"><a href="#">Admin Login</a></li>
+                  <li><a href="#">Agent Login</a></li>
+                  <li><a href="#">Client Login</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
           <div class="inner cover">
-            <h1>Policy Holder Manager</h1>
-        <h2>
-            <a href="/Capstoneproject2/newpolicyholder">Add New Policy Holder</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="/Capstoneproject2/policyholderlist">List All Policy Holders</a>
-             
-        </h2>
-         <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Policy Holder ID</th>
-      <th scope="col">Policy Holder First Name</th>
-      <th scope="col">Policy Holder Middle Name</th>
-      <th scope="col">Policy Holder Last Name</th> 
-      <th scope="col">Policy Holder Date of Birth</th>
-      <th scope="col">Policy Holder Password</th>
-	  <th scope="col">Policy Holder Email Address</th>
-	  <th scope="col">Policy</th>
-	  
-      
-      
-      
-    </tr>
-  </thead>
-  <tbody>
-           <c:forEach var="policy_holder" items="${listPolicy_Holder}">
-                <tr>
-           <td><c:out value="${policy_holder.PH_key}" /></td>
-      				<td><c:out value="${policy_holder.firstName}" /></td>
-                    <td><c:out value="${policy_holder.middleName}" /></td>
-                    <td><c:out value="${policy_holder.lastName}" /></td>
-                    <td><c:out value="${policy_holder.DOB}" /></td>
-                    <td><c:out value="${policy_holder.password}" /></td>
-                    <td><c:out value="${policy_holder.emailAddress}" /></td>
-                    <td><c:out value="${policy_holder.type}" /></td>
-                    
-      <td>
-                        <a href="/Capstoneproject2/editpolicyholder?PH_key=<c:out value='${policy_holder.PH_key}' />">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/Capstoneproject2/deletepolicyholder?PH_key=<c:out value='${policy_holder.PH_key}' />">Delete</a>                     
-                    </td>
-      
-    </tr>
-    </c:forEach>
-   
-  </tbody>
-</table>
+           <h1>Agent Login</h1>
+           <form action="agentlogin" method="post" class="form-inline">
+  				<div class="form-group mb-2">
+    				<label for="email" class="sr-only">Email</label>
+    				<input type="email" name="email" class="form-control" id="inputPassword2" placeholder="Email">
+
+  				</div>
+  				<div class="form-group mx-sm-3 mb-2">
+    				<label for="password" class="sr-only">Password</label>
+    				<input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Password">
+  					
+  				</div>
+  				<button type="submit" class="btn btn-danger mb-2">Log In</button>
+				</form>
+				<br>${message}
+            		<br><br> 
+        
           </div>
 
         </div>
@@ -220,4 +199,29 @@ text-decoration: none;
 
     </div>
 </body>
+<script type="text/javascript">
+ 
+    $(document).ready(function() {
+        $("#loginForm").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+         
+                password: "required",
+            },
+             
+            messages: {
+                email: {
+                    required: "Please enter email",
+                    email: "Please enter a valid email address"
+                },
+                 
+                password: "Please enter password"
+            }
+        });
+ 
+    });
+</script>
 </html>
