@@ -72,10 +72,10 @@ public class AgentDao {
 	            String password = resultSet.getString("password");
 	            String phone = resultSet.getString("phone");
 	            String emailAddress = resultSet.getString("emailAddress");
-	            
 
 	            Agent agent = new Agent(agent_id,firstName,middleName,lastName,password,phone,emailAddress);
 	            listAgent.add(agent);
+	            System.out.println("list " + agent_id);
        }
 	         
 	        resultSet.close();
@@ -93,15 +93,17 @@ public class AgentDao {
 	         
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 	        statement.setInt(1, agent.getAgent_id());
+	        System.out.println("delete " + agent.getAgent_id());
+
 	        boolean rowDeleted = statement.executeUpdate() > 0;
 	        statement.close();
 	        disconnect();
-	        return rowDeleted;     
+	        return rowDeleted;   
 	    }
 	     
 	    public boolean updateAgent(Agent agent) throws SQLException {
 	        String sql = "UPDATE agent SET firstName = ?, middleName = ?, lastName = ?, password = ?, phone = ?, emailAddress = ? ";
-	        sql+= "WHERE emailAddress = ?";
+	        sql+= "WHERE agent_id = ?";
 	        connect();
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 	        statement.setString(1, agent.getFirstName());
@@ -111,8 +113,7 @@ public class AgentDao {
 	        statement.setString(5, agent.getPhone());
 	        statement.setString(6, agent.getEmailAddress());
 	        
-	        statement.setString(7, agent.getEmailAddress());
-	        System.out.println(" firstname " + agent.getFirstName()); 
+	        statement.setInt(7, agent.getAgent_id());
 
 	        System.out.println(" update agent " + agent.getAgent_id()); 
 
