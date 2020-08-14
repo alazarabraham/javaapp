@@ -155,6 +155,8 @@ text-decoration: none;
       
                   <li><a href="agentpolicyholderlist">Policy Holders</a></li>
                   <li><a href="agentnewpolicyholder">Add Policy Holder</a></li>
+                 <li><a href="agentpolicylist">Policies</a></li>
+                  
                 
                 </ul>
               </nav>
@@ -187,7 +189,7 @@ text-decoration: none;
     </tr>
   </thead>
   <tbody>
-           <c:forEach var="policy_holder" items="${agentlistPolicy_Holder}">
+           <c:forEach var="policy_holder" items="${AgentlistPolicy_Holder}">
                 <tr>
            <td><c:out value="${policy_holder.PH_key}" /></td>
       				<td><c:out value="${policy_holder.firstName}" /></td>

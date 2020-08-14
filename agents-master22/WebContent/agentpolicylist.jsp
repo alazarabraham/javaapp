@@ -18,14 +18,6 @@ a:hover {
 }
 
 /* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
 
 
 /*
@@ -111,9 +103,6 @@ body {
     float: right;
   }
 }
-b{
-color:red;
-}
 
 
 /*
@@ -144,7 +133,9 @@ color:red;
   }
 
 }
-
+#home{
+text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -157,25 +148,53 @@ color:red;
 
           <div class="masthead clearfix">
             <div class="container inner">
-              <h3 class="masthead-brand">Cook Reid Insurance Agency</h3>
-              
+              <h3 class="masthead-brand"><a id="home" href="agentloggedinpage.jsp">Cook Reid Insurance Agency</a></h3>
               <nav>
                 <ul class="nav masthead-nav">
+                
                   <li><a href="agentpolicyholderlist">Policy Holders</a></li>
                   <li><a href="agentnewpolicyholder">Add Policy Holder</a></li>
                   <li><a href="agentpolicylist">Policies</a></li>
-
+                  
                 </ul>
               </nav>
             </div>
           </div>
 
           <div class="inner cover">
-          
-           <h1>Welcome <b>${agent.firstName}</b></h1>
-           <form action="${pageContext.request.contextPath}/agentlogout">
-    			<input class="btn btn-danger" type="submit" value="Log out" />
-			</form>
+            <h1 >Policy Manager</h1>
+        <h2>
+            <a href="/Capstoneproject2/agentnewpolicyholder" >Add New Policy Holder</a>
+            &nbsp;&nbsp;&nbsp;  
+            <a href="/Capstoneproject2/agentpolicylist">List All Policy     </a>
+			           
+        </h2>
+         <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Policy ID</th>
+      <th scope="col">Policy Type</th>
+      <th scope="col">Policy Time Period</th>
+     
+      
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+           <c:forEach var="policy" items="${AgentlistPolicy}">
+                <tr>
+           <td><c:out value="${policy.policy_key}" /></td>
+      				<td><c:out value="${policy.type}" /></td>
+                    <td><c:out value="${policy.time_period}" /></td>
+                   
+                    
+     
+    </tr>
+    </c:forEach>
+   
+  </tbody>
+</table>
           </div>
 
         </div>

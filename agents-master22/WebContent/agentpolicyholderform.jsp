@@ -156,6 +156,8 @@ text-decoration: none;
                 <ul class="nav masthead-nav">
                   <li><a href="agentpolicyholderlist">Policy Holders</a></li>
                   <li><a href="agentnewpolicyholder">Add Policy Holder</a></li>
+                  <li><a href="agentpolicylist">Policies</a></li>
+                  
 
                   
                 </ul>

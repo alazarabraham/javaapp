@@ -42,7 +42,7 @@ public class AgentDao {
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 	        statement.setString(1, agent.getFirstName());
 	        statement.setString(2, agent.getMiddleName());
-	        statement.setString(3, agent.getMiddleName());
+	        statement.setString(3, agent.getLastName());
 	        statement.setString(4, agent.getPassword());
 	        statement.setString(5, agent.getPhone());
 	        statement.setString(6, agent.getEmailAddress());
@@ -76,8 +76,7 @@ public class AgentDao {
 
 	            Agent agent = new Agent(agent_id,firstName,middleName,lastName,password,phone,emailAddress);
 	            listAgent.add(agent);
-	            agent.setAgent_id(agent_id);
-	        }
+       }
 	         
 	        resultSet.close();
 	        statement.close();
@@ -94,7 +93,6 @@ public class AgentDao {
 	         
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 	        statement.setInt(1, agent.getAgent_id());
-	        System.out.println(" delete agent " + agent.getAgent_id()); 
 	        boolean rowDeleted = statement.executeUpdate() > 0;
 	        statement.close();
 	        disconnect();

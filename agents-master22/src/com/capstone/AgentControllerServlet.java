@@ -95,6 +95,7 @@ public class AgentControllerServlet extends HttpServlet {
             case "/agentupdatepolicyholder":
                 AgentupdatePolicy_Holder(request, response);
                 break;
+            
             case "/policylist":
             	listPolicy(request, response);
                 break;
@@ -110,10 +111,13 @@ public class AgentControllerServlet extends HttpServlet {
             case "/editpolicy":
                 showPolicyEditForm(request, response);
                 break;
-
             case "/updatepolicy":
                 updatePolicy(request, response);
                 break;
+            case "/agentpolicylist":
+            	AgentlistPolicy(request, response);
+                break;
+           
             default:
                 listAgent(request, response);
                 break;
@@ -289,8 +293,8 @@ public class AgentControllerServlet extends HttpServlet {
     private void updatePolicy(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int policy_key = Integer.parseInt(request.getParameter("policy_key"));
-        String type = request.getParameter("type");
         String time_period = request.getParameter("time_period");
+        String type = request.getParameter("type");
 
         Policy policy = new Policy(policy_key, type, time_period);
         policyDao.updatePolicy(policy);
@@ -309,7 +313,7 @@ public class AgentControllerServlet extends HttpServlet {
     private void AgentlistPolicy_Holder(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
     	List<Policy_Holder> AgentlistPolicy_Holder = policy_holderDao.listAllPolicy_Holders();
-        request.setAttribute("agentlistPolicy_Holder", AgentlistPolicy_Holder);
+        request.setAttribute("AgentlistPolicy_Holder", AgentlistPolicy_Holder);
         RequestDispatcher dispatcher = request.getRequestDispatcher("agentpolicyholderlist.jsp");
         dispatcher.forward(request, response);
     }
@@ -373,8 +377,13 @@ public class AgentControllerServlet extends HttpServlet {
         response.sendRedirect("agentpolicyholderlist");
  
     }
-    
-    
- 
+    private void AgentlistPolicy(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+    	List<Policy> AgentlistPolicy = policyDao.listAllPolicy();
+        request.setAttribute("AgentlistPolicy", AgentlistPolicy);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("agentpolicylist.jsp");
+        dispatcher.forward(request, response);
+    }
+   
    
 }
