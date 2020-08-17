@@ -103,7 +103,7 @@ public class Policy_HolderDao {
 	    }
 	     
 	    public boolean updatePolicy_Holder(Policy_Holder policy_holder) throws SQLException {
-	        String sql = "UPDATE policy_holder SET firstName = ?, middleName = ?, lastName = ?,  DOB = ?, password = ?, emailAddress = ?, policy_key= ? WHERE emailAddress = ?";
+	        String sql = "UPDATE policy_holder SET firstName = ?, middleName = ?, lastName = ?,  DOB = ?, password = ?, emailAddress = ?, policy_key= ? WHERE PH_key = ?";
 	        connect();
 	         
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
@@ -114,7 +114,7 @@ public class Policy_HolderDao {
 	        statement.setString(5, policy_holder.getPassword());
 	        statement.setString(6, policy_holder.getEmailAddress());
 	        statement.setInt(7, policy_holder.getPolicy_key());
-	        statement.setString(8, policy_holder.getEmailAddress());
+	        statement.setInt(8, policy_holder.getPH_key());
 	        System.out.println("DOB: "+policy_holder.getDOB());
 	        System.out.println("password: "+policy_holder.getPassword());
 
@@ -146,7 +146,7 @@ public class Policy_HolderDao {
 	            int policy_key = resultSet.getInt("policy_key");
 
 	             
-	            policy_holder = new Policy_Holder(firstName,middleName,lastName,DOB,password,emailAddress,policy_key);
+	            policy_holder = new Policy_Holder(PH_key, firstName,middleName,lastName,DOB,password,emailAddress,policy_key);
 	        }
 	         
 	        resultSet.close();

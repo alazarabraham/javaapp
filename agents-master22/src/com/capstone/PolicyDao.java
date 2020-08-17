@@ -94,13 +94,13 @@ public class PolicyDao {
 	    }
 	     
 	    public boolean updatePolicy(Policy policy) throws SQLException {
-	        String sql = "UPDATE policy SET type = ?, time_period = ? where type = ?";
+	        String sql = "UPDATE policy SET type = ?, time_period = ? where policy_key = ?";
 	        connect();
 	         
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 	        statement.setString(1, policy.getType());
 	        statement.setString(2, policy.getTime_period());
-	        statement.setString(3, policy.getType());
+	        statement.setInt(3, policy.getPolicy_key());
 
 	    
 	        boolean rowUpdated = statement.executeUpdate() > 0;
@@ -124,7 +124,7 @@ public class PolicyDao {
 	        	String type = resultSet.getString("type");
 	            String time_period = resultSet.getString("time_period");
 	            
-	            policy = new Policy(type,time_period);
+	            policy = new Policy(policy_key, type,time_period);
 	        }
 	         
 	        resultSet.close();
