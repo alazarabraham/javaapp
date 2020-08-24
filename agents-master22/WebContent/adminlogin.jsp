@@ -54,7 +54,7 @@ body {
   display: table;
   width: 100%;
   height: 100VH;
-  background-color: #333;
+  background-color: black;
   /*height: 100%; */
   /*min-height: 100%;*/
 }

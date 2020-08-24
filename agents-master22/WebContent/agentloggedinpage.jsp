@@ -49,7 +49,7 @@ body {
   display: table;
   width: 100%;
   height: 100vh;
-  background-color: #333;
+  background-color: black;
   /*height: 100%; */
   /*min-height: 100%;*/
 }
@@ -177,8 +177,8 @@ color:red;
   position: relative;
   padding: 30px 40px;
   margin: -25px -20px 25px;
-  border-bottom: 1px solid #333;
-  background-color: #333;
+  border-bottom: 1px solid black;
+  background-color: black;
 }
 .page-tabs {
   margin: -25px -20px 30px;
