@@ -161,7 +161,7 @@ body {
             <h1 class="cover-heading">Cook Ried Insurance Agency</h1>
             <p class="lead">Fortune 500 Insurance Agency</p>
             <p class="lead">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=CookRied@gmail.com" class="btn btn-lg btn-danger">Contact us</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=CookRied@gmail.com" class="btn btn-lg btn-danger">Contact us!</a>
             </p>
           </div>
 
