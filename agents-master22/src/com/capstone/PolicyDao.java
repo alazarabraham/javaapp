@@ -80,7 +80,7 @@ public class PolicyDao {
 	    }
 	     
 	    public boolean deletePolicy(Policy policy) throws SQLException {
-	        String sql = "DELETE FROM Policy where policy__key = ?";
+	        String sql = "DELETE FROM Policy where policy_key = ?";
 	         
 	        connect();
 	         
