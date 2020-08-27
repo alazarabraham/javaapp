@@ -57,19 +57,19 @@ text-align: center;}
       
       <div class="col-12 text-center">
       <br><br>
-           <h1>Agent Policy Manager</h1>
+           <h1>Agent Client Manager</h1>
         
 <table class="table">
   <thead >
     <tr>
-      <th scope="col">Policy Holder ID</th>
-      <th scope="col">Policy Holder First Name</th>
-      <th scope="col">Policy Holder Middle Name</th>
-      <th scope="col">Policy Holder Last Name</th> 
-      <th scope="col">Policy Holder Date of Birth</th>
-      <th scope="col">Policy Holder Password</th>
-	  <th scope="col">Policy Holder Email Address</th>
-	  <th scope="col">Policy</th>
+      <th scope="col">Client ID</th>
+      <th scope="col">Client First Name</th>
+      <th scope="col">Client Middle Name</th>
+      <th scope="col">Client Last Name</th> 
+      <th scope="col">Client Date of Birth</th>
+      <th scope="col">Client Password</th>
+	  <th scope="col">Client Email Address</th>
+	  <th scope="col">Client Policy</th>
 	  
       
       

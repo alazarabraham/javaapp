@@ -56,7 +56,7 @@ text-align: center;}
     <div class="row h-100 align-items-center">
       
       <div class="col-12 text-center">
-           <h1>Agent Policy Manager</h1>
+           <h1>Agent Client Manager</h1>
         
 <c:if test="${policy_holder != null}">
             <form action="/Capstoneproject2/agentupdatepolicyholder" method="post">
