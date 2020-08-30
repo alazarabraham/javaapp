@@ -157,6 +157,8 @@ public class AgentControllerServlet extends HttpServlet {
  
     private void insertAgent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
+        int state_key = Integer.parseInt(request.getParameter("state_key"));
+
         String firstName = request.getParameter("firstName");
         String middleName = request.getParameter("middleName");
         String lastName = request.getParameter("lastName");
@@ -164,15 +166,19 @@ public class AgentControllerServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String emailAddress = request.getParameter("emailAddress");
  
-        Agent newAgent = new Agent(firstName,middleName,lastName,password,phone, emailAddress);
+        Agent newAgent = new Agent(state_key,firstName,middleName,lastName,password,phone, emailAddress);
         agentDao.insertAgent(newAgent);
         response.sendRedirect("listAgent");
     }
  
     private void updateAgent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
+    	
         int agent_id = Integer.parseInt(request.getParameter("agent_id"));
+        int state_key = Integer.parseInt(request.getParameter("state_key"));
+
         String firstName = request.getParameter("firstName");
+
         String middleName = request.getParameter("middleName");
         String lastName = request.getParameter("lastName");
         String password = request.getParameter("password");
@@ -180,7 +186,7 @@ public class AgentControllerServlet extends HttpServlet {
         String emailAddress = request.getParameter("emailAddress");
 
 
-        Agent agent = new Agent(agent_id, firstName, middleName, lastName,  password,  phone,  emailAddress);
+        Agent agent = new Agent(agent_id, state_key,firstName, middleName, lastName,  password,  phone,  emailAddress);
         agentDao.updateAgent(agent);
         response.sendRedirect("listAgent");
     }

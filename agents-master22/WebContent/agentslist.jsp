@@ -71,6 +71,8 @@ text-align: center;}
   <thead >
     <tr>
       <th scope="col">Agent ID</th>
+      <th scope="col">Agent State</th>
+
       <th scope="col">Agent First Name</th>
       <th scope="col">Agent Middle Name</th>
       <th scope="col">Agent Last Name</th> 
@@ -80,21 +82,25 @@ text-align: center;}
       
       
       
+      
     </tr>
   </thead>
   <tbody>
            <c:forEach var="agent" items="${listAgent}">
                 <tr>
            <td><c:out value="${agent.agent_id}" /></td>
+                    <td><img src="<c:out value="${agent.statePicture}" />" width="40" height="25"/></td>
+           
       				<td><c:out value="${agent.firstName}" /></td>
                     <td><c:out value="${agent.middleName}" /></td>
                     <td><c:out value="${agent.lastName}" /></td>
                     <td><c:out value="${agent.password}" /></td>
                     <td><c:out value="${agent.phone}" /></td>
                     <td><c:out value="${agent.emailAddress}" /></td>
-      <td>
+      
+    <td>
                         <a href="/Capstoneproject2/editagent?agent_id=<c:out value='${agent.agent_id}' />">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="/Capstoneproject2/deleteagent?agent_id=<c:out value='${agent.agent_id}' />">Delete</a>                     
                     </td>
       

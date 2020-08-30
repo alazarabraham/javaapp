@@ -149,8 +149,7 @@ text-align: center;}
             </a>
           </div>                      
           <div class="media-body va-m">
-            <h2 class="media-heading" style="color:black;">Welcome ${agent.firstName }
-            </h2>
+            <h2 class="media-heading" style="color:black;">Welcome ${agent.firstName }  !</h2>
             <p class="lead" style="color:black;">Email Address: ${agent.emailAddress }</p>
             <div class="media-links">
               <ul class="list-inline list-unstyled">
