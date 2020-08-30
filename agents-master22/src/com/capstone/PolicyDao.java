@@ -44,7 +44,6 @@ public class PolicyDao {
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 	        statement.setString(1, policy.getType());
 	        statement.setString(2, policy.getTime_period());
-	        System.out.println("id " + policy.getPolicy_key());
 	        boolean rowInserted = statement.executeUpdate() > 0;
 	        statement.close();
 	        disconnect();

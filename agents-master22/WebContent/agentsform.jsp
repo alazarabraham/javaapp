@@ -142,7 +142,7 @@ text-align: center;}
           
             <tr>
                 <td colspan="2" align="center">
-                <input class="btn btn-danger" type="submit" value="Save" />
+                <input class="btn btn-danger" placeholder="Enter email" type="submit" value="Save" />
                 
                 </td>
             </tr>

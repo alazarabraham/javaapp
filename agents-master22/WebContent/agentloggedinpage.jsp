@@ -114,26 +114,17 @@ text-align: center;}
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="listagent">Agents</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="newagent">Add Agent</a>
-        </li>
        <li class="nav-item">
-          <a class="nav-link" href="policyholderlist">Policy Holders</a>
+          <a class="nav-link" href="agentpolicyholderlist">Policy Holders</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="newpolicyholder">Add Policy Holder</a>
+          <a class="nav-link" href="agentnewpolicyholder">Add Policy Holder</a>
         </li>
         </li>
        <li class="nav-item">
-          <a class="nav-link" href="policylist">Policies</a>
+          <a class="nav-link" href="agentpolicylist">Policies</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="newpolicy">Add Policies</a>
-        </li>
-       
+
       </ul>
     </div>
   </div>
@@ -151,7 +142,10 @@ text-align: center;}
         <div class="media clearfix">
           <div class="media-left pr30">
             <a href="#">
-              <img class="media-object mw150" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
+            <svg width="200" height="200"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">       
+  <image href="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" height="200" width="200"/>
+</svg>
             </a>
           </div>                      
           <div class="media-body va-m">

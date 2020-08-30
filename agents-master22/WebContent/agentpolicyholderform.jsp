@@ -28,7 +28,7 @@ text-align: center;}
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="loggedinpage.jsp">Cook Ried Insurance Agency</a>
+    <a class="navbar-brand" href="agentloggedinpage.jsp">Cook Ried Insurance Agency</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -136,6 +136,27 @@ text-align: center;}
                         />
                 </td>
             </tr>
+              <tr>
+                <th scope="col">Country: </th>
+                <td>
+                 <div class="container center_div form-group col-md-7" style="text-align:center;">
+                  <select id="inputState" class="form-control" name="country_key" value="<c:out value='${policy_holder.country_key}' />" />
+  					<optgroup label="Countries">
+    					<option value="1">United States</option>
+    					<option value="2">Mexico</option>
+    					<option value="3">Canada</option>
+    					<option value="4">United Kingdom</option>
+    					<option value="5">France</option>
+    					<option value="6">Spain</option>
+    					<option value="7">Germany</option>
+    					<option value="8">Italy</option>
+    					<option value="9">Puerto Rico</option>
+					  </optgroup>
+
+				</select>
+				</div>
+                </td>
+            </tr>  
             
             
           

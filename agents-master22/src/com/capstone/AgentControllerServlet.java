@@ -62,6 +62,10 @@ public class AgentControllerServlet extends HttpServlet {
             case "/policyholderlist":
             	listPolicy_Holder(request, response);
                 break;
+            case "/policyholderprofile":
+            	Policy_HolderProfile(request, response);
+                break;
+                
             case "/newpolicyholder":
             	showNewPolicy_HolderForm(request, response);
                 break;
@@ -196,7 +200,14 @@ public class AgentControllerServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("policyholderlist.jsp");
         dispatcher.forward(request, response);
     }
-
+    private void Policy_HolderProfile(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+    	int PH_key = Integer.parseInt(request.getParameter("PH_key"));
+        Policy_Holder existingPolicy_Holder = policy_holderDao.getPolicy_Holder(PH_key);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("policyholderprofile.jsp");
+        request.setAttribute("policy_holder", existingPolicy_Holder);
+        dispatcher.forward(request, response);
+    }
     private void showNewPolicy_HolderForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("policyholderform.jsp");
@@ -215,6 +226,7 @@ public class AgentControllerServlet extends HttpServlet {
  
     private void insertPolicy_Holder(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
+        int country_key = Integer.parseInt(request.getParameter("country_key"));
         String firstName = request.getParameter("firstName");
         String middleName = request.getParameter("middleName");
         String lastName = request.getParameter("lastName");
@@ -222,7 +234,7 @@ public class AgentControllerServlet extends HttpServlet {
         String password = request.getParameter("password");   
         String emailAddress = request.getParameter("emailAddress");
         int policy_key = Integer.parseInt(request.getParameter("policy_key"));
-        Policy_Holder policy_holder = new Policy_Holder(firstName,middleName,lastName,DOB,password, emailAddress, policy_key);
+        Policy_Holder policy_holder = new Policy_Holder(country_key,firstName,middleName,lastName,DOB,password, emailAddress, policy_key);
         policy_holderDao.insertPolicy_Holder(policy_holder);
         response.sendRedirect("policyholderlist");
         
@@ -231,6 +243,7 @@ public class AgentControllerServlet extends HttpServlet {
     private void updatePolicy_Holder(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int PH_key = Integer.parseInt(request.getParameter("PH_key"));
+        int country_key = Integer.parseInt(request.getParameter("country_key"));
         String firstName = request.getParameter("firstName");
         String middleName = request.getParameter("middleName");
         String lastName = request.getParameter("lastName");
@@ -242,7 +255,7 @@ public class AgentControllerServlet extends HttpServlet {
 
 
  
-        Policy_Holder policy_holder = new Policy_Holder(PH_key, firstName, middleName, lastName,  DOB, password ,  emailAddress,policy_key);
+        Policy_Holder policy_holder = new Policy_Holder(PH_key, country_key,firstName, middleName, lastName,  DOB, password ,  emailAddress,policy_key);
         policy_holderDao.updatePolicy_Holder(policy_holder);
         response.sendRedirect("policyholderlist");
     }
@@ -337,6 +350,7 @@ public class AgentControllerServlet extends HttpServlet {
  
     private void AgentinsertPolicy_Holder(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
+        int country_key = Integer.parseInt(request.getParameter("country_key"));
         String firstName = request.getParameter("firstName");
         String middleName = request.getParameter("middleName");
         String lastName = request.getParameter("lastName");
@@ -344,7 +358,7 @@ public class AgentControllerServlet extends HttpServlet {
         String password = request.getParameter("password");   
         String emailAddress = request.getParameter("emailAddress");
         int policy_key = Integer.parseInt(request.getParameter("policy_key"));
-        Policy_Holder policy_holder = new Policy_Holder(firstName,middleName,lastName,DOB,password, emailAddress, policy_key);
+        Policy_Holder policy_holder = new Policy_Holder(country_key,firstName,middleName,lastName,DOB,password, emailAddress, policy_key);
         policy_holderDao.insertPolicy_Holder(policy_holder);
         response.sendRedirect("agentpolicyholderlist");
         
@@ -353,6 +367,8 @@ public class AgentControllerServlet extends HttpServlet {
     private void AgentupdatePolicy_Holder(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int PH_key = Integer.parseInt(request.getParameter("PH_key"));
+        int country_key = Integer.parseInt(request.getParameter("country_key"));
+
         String firstName = request.getParameter("firstName");
         String middleName = request.getParameter("middleName");
         String lastName = request.getParameter("lastName");
@@ -364,7 +380,7 @@ public class AgentControllerServlet extends HttpServlet {
 
 
  
-        Policy_Holder policy_holder = new Policy_Holder(PH_key, firstName, middleName, lastName,  DOB, password ,  emailAddress,policy_key);
+        Policy_Holder policy_holder = new Policy_Holder(PH_key,country_key, firstName, middleName, lastName,  DOB, password ,  emailAddress,policy_key);
         policy_holderDao.updatePolicy_Holder(policy_holder);
         response.sendRedirect("agentpolicyholderlist");
     }

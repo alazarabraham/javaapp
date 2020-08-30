@@ -65,7 +65,7 @@ text-align: center;}
     <div class="row h-100 align-items-center">
       
       <div class="col-12 text-center">
-    
+    <br><br>
            <h1>Client Manager</h1>
   <c:if test="${policy_holder != null}">
             <form action="/Capstoneproject2/updatepolicyholder" method="post">
@@ -87,7 +87,7 @@ text-align: center;}
                 <c:if test="${policy_holder != null}">
                     <input type="hidden" name="PH_key" value="<c:out value='${policy_holder.PH_key}' />" />
                 </c:if> 
-                          
+                     
             <tr>
                 <th scope="col">First Name: </th>
                 <td>
@@ -145,7 +145,28 @@ text-align: center;}
                         />
                 </td>
             </tr>
-            
+         
+            <tr>
+                <th scope="col">Country: </th>
+                <td>
+                 <div class="container center_div form-group col-md-7" style="text-align:center;">
+                  <select id="inputState" class="form-control" name="country_key" value="<c:out value='${policy_holder.country_key}' />" />
+  					<optgroup label="Countries">
+    					<option value="1">United States</option>
+    					<option value="2">Mexico</option>
+    					<option value="3">Canada</option>
+    					<option value="4">United Kingdom</option>
+    					<option value="5">France</option>
+    					<option value="6">Spain</option>
+    					<option value="7">Germany</option>
+    					<option value="8">Italy</option>
+    					<option value="9">Puerto Rico</option>
+					  </optgroup>
+
+				</select>
+				</div>
+                </td>
+            </tr>  
             
           
             <tr>

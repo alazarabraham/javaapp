@@ -37,17 +37,19 @@ public class Policy_HolderDao {
 	    }
 	     
 	    public boolean insertPolicy_Holder(Policy_Holder policy_holder) throws SQLException {
-	        String sql = "INSERT INTO policy_holder (firstName, middleName, lastName,DOB, password,emailAddress,policy_key) VALUES (?, ? , ? , ? , ? , ?, ?)";
+	        String sql = "INSERT INTO policy_holder (country_key,firstName, middleName, lastName,DOB, password,emailAddress,policy_key) VALUES (?,?, ? , ? , ? , ? , ?, ?)";
 	        connect();
 	         
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-	        statement.setString(1, policy_holder.getFirstName());
-	        statement.setString(2, policy_holder.getMiddleName());
-	        statement.setString(3, policy_holder.getLastName());
-	        statement.setString(4, policy_holder.getDOB());
-	        statement.setString(5, policy_holder.getPassword());
-	        statement.setString(6, policy_holder.getEmailAddress());
-	        statement.setInt(7, policy_holder.getPolicy_key());
+
+	        statement.setInt(1, policy_holder.getCountry_key());
+	        statement.setString(2, policy_holder.getFirstName());
+	        statement.setString(3, policy_holder.getMiddleName());
+	        statement.setString(4, policy_holder.getLastName());
+	        statement.setString(5, policy_holder.getDOB());
+	        statement.setString(6, policy_holder.getPassword());
+	        statement.setString(7, policy_holder.getEmailAddress());
+	        statement.setInt(8, policy_holder.getPolicy_key());
 	        
 	         
 	        boolean rowInserted = statement.executeUpdate() > 0;
@@ -59,7 +61,7 @@ public class Policy_HolderDao {
 	    public List<Policy_Holder> listAllPolicy_Holders() throws SQLException {
 	        List<Policy_Holder> listPolicy_Holder = new ArrayList<>();
 	         
-	        String sql = "SELECT policy_holder.PH_key,policy_holder.firstname,policy_holder.middlename,policy_holder.lastname,policy_holder.dob,policy_holder.password,policy_holder.emailaddress,policy.type from policy_holder inner join policy on policy_holder.policy_key=policy.policy_key";
+	        String sql = "select ph_key,firstname,middlename,lastname,dob,password,emailaddress,type,countrypicture from policy_holder inner join policy using (policy_key) inner join countries using (country_key) Order by Ph_key asc ";
 	         
 	        connect();
 	         
@@ -68,6 +70,7 @@ public class Policy_HolderDao {
 	         
 	        while (resultSet.next()) {
 	            int PH_key = resultSet.getInt("PH_key");
+	        	String countryPicture = resultSet.getString("countryPicture");
 	            String firstName = resultSet.getString("firstName");
 	            String middleName = resultSet.getString("middleName");
 	            String lastName = resultSet.getString("lastName");
@@ -76,7 +79,7 @@ public class Policy_HolderDao {
 	            String emailAddress = resultSet.getString("emailAddress");
 	            String type = resultSet.getString("type");
 	             
-	            Policy_Holder policy_holder = new Policy_Holder(PH_key,firstName,middleName,lastName,DOB,password,emailAddress,type);
+	            Policy_Holder policy_holder = new Policy_Holder(PH_key,countryPicture,firstName,middleName,lastName,DOB,password,emailAddress,type);
 	            listPolicy_Holder.add(policy_holder);
 	        }
 
@@ -103,20 +106,21 @@ public class Policy_HolderDao {
 	    }
 	     
 	    public boolean updatePolicy_Holder(Policy_Holder policy_holder) throws SQLException {
-	        String sql = "UPDATE policy_holder SET firstName = ?, middleName = ?, lastName = ?,  DOB = ?, password = ?, emailAddress = ?, policy_key= ? WHERE PH_key = ?";
+	        String sql = "UPDATE policy_holder SET country_key = ?, firstName = ?, middleName = ?, lastName = ?,  DOB = ?, password = ?, emailAddress = ?, policy_key= ? WHERE PH_key = ?";
 	        connect();
 	         
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-	        statement.setString(1, policy_holder.getFirstName());
-	        statement.setString(2, policy_holder.getMiddleName());
-	        statement.setString(3, policy_holder.getLastName());
-	        statement.setString(4, policy_holder.getDOB());
-	        statement.setString(5, policy_holder.getPassword());
-	        statement.setString(6, policy_holder.getEmailAddress());
-	        statement.setInt(7, policy_holder.getPolicy_key());
-	        statement.setInt(8, policy_holder.getPH_key());
-	        System.out.println("DOB: "+policy_holder.getDOB());
-	        System.out.println("password: "+policy_holder.getPassword());
+	        statement.setInt(1, policy_holder.getCountry_key());
+
+	        statement.setString(2, policy_holder.getFirstName());
+	        statement.setString(3, policy_holder.getMiddleName());
+	        statement.setString(4, policy_holder.getLastName());
+	        statement.setString(5, policy_holder.getDOB());
+	        statement.setString(6, policy_holder.getPassword());
+	        statement.setString(7, policy_holder.getEmailAddress());
+	        statement.setInt(8, policy_holder.getPolicy_key());
+	        statement.setInt(9, policy_holder.getPH_key());
+
 
 	        boolean rowUpdated = statement.executeUpdate() > 0;
 	        statement.close();
@@ -136,6 +140,7 @@ public class Policy_HolderDao {
 	        ResultSet resultSet = statement.executeQuery();
 	         
 	        if (resultSet.next()) {
+	        	int country_key = resultSet.getInt("country_key");
 	        	String firstName = resultSet.getString("firstName");
 	            String middleName = resultSet.getString("middleName");
 	            String lastName = resultSet.getString("lastName");
@@ -146,7 +151,7 @@ public class Policy_HolderDao {
 	            int policy_key = resultSet.getInt("policy_key");
 
 	             
-	            policy_holder = new Policy_Holder(PH_key, firstName,middleName,lastName,DOB,password,emailAddress,policy_key);
+	            policy_holder = new Policy_Holder(PH_key,country_key, firstName,middleName,lastName,DOB,password,emailAddress,policy_key);
 	        }
 	         
 	        resultSet.close();

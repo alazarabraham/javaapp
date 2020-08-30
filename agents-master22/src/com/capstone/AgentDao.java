@@ -47,7 +47,6 @@ public class AgentDao {
 	        statement.setString(5, agent.getPhone());
 	        statement.setString(6, agent.getEmailAddress());
 
-	        System.out.println("insert " + agent.getAgent_id());
 	        boolean rowInserted = statement.executeUpdate() > 0;
 	        statement.close();
 	        disconnect();
@@ -75,7 +74,6 @@ public class AgentDao {
 
 	            Agent agent = new Agent(agent_id,firstName,middleName,lastName,password,phone,emailAddress);
 	            listAgent.add(agent);
-	            System.out.println("list " + agent_id);
        }
 	         
 	        resultSet.close();
@@ -93,7 +91,6 @@ public class AgentDao {
 	         
 	        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 	        statement.setInt(1, agent.getAgent_id());
-	        System.out.println("delete " + agent.getAgent_id());
 
 	        boolean rowDeleted = statement.executeUpdate() > 0;
 	        statement.close();
@@ -115,7 +112,6 @@ public class AgentDao {
 	        
 	        statement.setInt(7, agent.getAgent_id());
 
-	        System.out.println(" update agent " + agent.getAgent_id()); 
 
 	        boolean rowUpdated = statement.executeUpdate() > 0;
 	        statement.close();

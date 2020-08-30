@@ -29,6 +29,7 @@ text-align: center;}
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
     <a class="navbar-brand" href="loggedinpage.jsp">Cook Ried Insurance Agency</a>
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,6 +55,7 @@ text-align: center;}
           <a class="nav-link" href="newpolicy">Add Policies</a>
         </li>
        
+       
       </ul>
     </div>
   </div>
@@ -74,6 +76,8 @@ text-align: center;}
   <thead>
     <tr>
       <th scope="col">Client ID</th>
+   	  <th scope="col">Client Country</th>
+      
       <th scope="col">Client First Name</th>
       <th scope="col">Client Middle Name</th>
       <th scope="col">Client Last Name</th> 
@@ -90,8 +94,10 @@ text-align: center;}
   <tbody>
            <c:forEach var="policy_holder" items="${listPolicy_Holder}">
                 <tr>
-           <td><c:out value="${policy_holder.PH_key}" /></td>
-      				<td><c:out value="${policy_holder.firstName}" /></td>
+           <td><c:out value="${policy_holder.PH_key}" /></a></td>
+                    <td><img src="<c:out value="${policy_holder.countryPicture}" />" width="40" height="25"/></td>
+           
+      				<td><a class="btn btn-light" href="/Capstoneproject2/policyholderprofile?PH_key=<c:out value='${policy_holder.PH_key}' />"><c:out value="${policy_holder.firstName}" /></td>
                     <td><c:out value="${policy_holder.middleName}" /></td>
                     <td><c:out value="${policy_holder.lastName}" /></td>
                     <td><c:out value="${policy_holder.DOB}" /></td>
