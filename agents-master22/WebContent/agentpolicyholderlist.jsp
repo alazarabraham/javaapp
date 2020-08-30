@@ -63,7 +63,7 @@ text-align: center;}
   <thead >
     <tr>
       <th scope="col">Client ID</th>
-      <th scope="col">Client Country</th>
+      <th scope="col">Client State</th>
       
       <th scope="col">Client First Name</th>
       <th scope="col">Client Middle Name</th>
@@ -82,7 +82,7 @@ text-align: center;}
            <c:forEach var="policy_holder" items="${AgentlistPolicy_Holder}">
                 <tr>
            <td><c:out value="${policy_holder.PH_key}" /></td>
-                    <td><img src="<c:out value="${policy_holder.countryPicture}" />" width="40" height="25"/></td>
+                    <td><img src="<c:out value="${policy_holder.statePicture}" />" width="40" height="25"/></td>
            
       				<td><a href="/Capstoneproject2/policyholderprofile?PH_key=<c:out value='${policy_holder.PH_key}' />"><c:out value="${policy_holder.firstName}" /></a></td>
                     <td><c:out value="${policy_holder.middleName}" /></td>
