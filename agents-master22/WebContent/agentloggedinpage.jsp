@@ -144,7 +144,7 @@ text-align: center;}
             <a href="#">
             <svg width="200" height="200"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">       
-  <image href="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" height="200" width="200"/>
+  <image href="https://cdn4.iconfinder.com/data/icons/avatars-circle-2/72/118-512.png" height="200" width="200"/>
 </svg>
             </a>
           </div>                      

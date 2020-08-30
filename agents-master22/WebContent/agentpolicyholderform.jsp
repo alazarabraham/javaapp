@@ -103,13 +103,17 @@ text-align: center;}
                         />
                 </td>
             </tr>
-            <tr>
-                <th>Date of Birth (mm/dd/yyyy): </th>
+             <tr>
+                <th>Date of Birth (yyyy/mm/dd): </th>
                 <td>
-                    <input  name="DOB" size="45" required="required" 
-                            value="<c:out value='${policy_holder.DOB}' />"
-                        />
+                <div class="container center_div form-group col-md-7" style="text-align:center;">
+                <input class="form-control" type="date" id="start" name="DOB"
+       			 value="<c:out value='${policy_holder.DOB}' />"
+      			 min="1920-01-01" max="2020-12-31">
+                 </div>   
                 </td>
+               
+                
             </tr>
           <tr>
                 <th>Password: </th>
@@ -141,16 +145,16 @@ text-align: center;}
                 <td>
                  <div class="container center_div form-group col-md-7" style="text-align:center;">
                   <select id="inputState" class="form-control" name="state_key" value="<c:out value='${policy_holder.state_key}' />" />
-  					<optgroup label="Countries">
+  					<optgroup label="States">
     					<option value="1">Georgia</option>
-    					<option value="2">Mexico</option>
-    					<option value="3">Canada</option>
-    					<option value="4">United Kingdom</option>
-    					<option value="5">France</option>
-    					<option value="6">Spain</option>
-    					<option value="7">Germany</option>
-    					<option value="8">Italy</option>
-    					<option value="9">Puerto Rico</option>
+    					<option value="2">Florida</option>
+    					<option value="3">South Carolina</option>
+    					<option value="4">North Carolina</option>
+    					<option value="5">Virginia</option>
+    					<option value="6">Pennyslvania</option>
+    					<option value="7">New York</option>
+    					<option value="8">Texas</option>
+    					<option value="9">New Mexico</option>
 					  </optgroup>
 
 				</select>

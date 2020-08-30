@@ -113,12 +113,16 @@ text-align: center;}
                 </td>
             </tr>
             <tr>
-                <th>Date of Birth (mm/dd/yyyy): </th>
+                <th>Date of Birth (yyyy/mm/dd): </th>
                 <td>
-                    <input  name="DOB" size="45" required="required" 
-                            value="<c:out value='${policy_holder.DOB}' />"
-                        />
+                <div class="container center_div form-group col-md-7" style="text-align:center;">
+                <input class="form-control" type="date" id="start" name="DOB"
+       			 value="<c:out value='${policy_holder.DOB}' />"
+      			 min="1920-01-01" max="2020-12-31">
+                 </div>   
                 </td>
+               
+                
             </tr>
           <tr>
                 <th>Password: </th>
