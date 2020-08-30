@@ -155,6 +155,14 @@ text-align: center;}
     					<option value="7">New York</option>
     					<option value="8">Texas</option>
     					<option value="9">New Mexico</option>
+    					<option value="10">West Virginia</option>
+    					<option value="11">Alabama</option>
+    					<option value="12">Tennessee</option>
+    					<option value="13">Kentucky</option>
+    					<option value="14">Ohio</option>
+    					<option value="15">Michigan</option>
+    					<option value="16">Indiana</option>
+    					<option value="17">Illinois</option>
 					  </optgroup>
 
 				</select>

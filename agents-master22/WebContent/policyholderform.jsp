@@ -156,15 +156,32 @@ text-align: center;}
                  <div class="container center_div form-group col-md-7" style="text-align:center;">
                   <select id="inputState" class="form-control" name="state_key" value="<c:out value='${policy_holder.state_key}' />" />
   					<optgroup label="States">
+  						<option value="11">Alabama</option>
+  						<option value="2">Florida</option>
     					<option value="1">Georgia</option>
-    					<option value="2">Florida</option>
-    					<option value="3">South Carolina</option>
-    					<option value="4">North Carolina</option>
-    					<option value="5">Virginia</option>
-    					<option value="6">Pennyslvania</option>
-    					<option value="7">New York</option>
-    					<option value="8">Texas</option>
+    					<option value="17">Illinois</option>
+    					<option value="16">Indiana</option>
+    					<option value="13">Kentucky</option>
+    					<option value="15">Michigan</option>
     					<option value="9">New Mexico</option>
+    					<option value="7">New York</option>
+    					<option value="4">North Carolina</option>
+    					<option value="14">Ohio</option>
+    					<option value="6">Pennyslvania</option>
+    					<option value="3">South Carolina</option>
+    					<option value="12">Tennessee</option>
+    					<option value="8">Texas</option>
+    					<option value="10">West Virginia</option>
+    					<option value="5">Virginia</option>
+    					
+    					
+    					
+    					
+    					
+    					
+    					
+    					
+    					
 					  </optgroup>
 
 				</select>
