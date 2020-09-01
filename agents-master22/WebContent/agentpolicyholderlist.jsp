@@ -20,6 +20,8 @@
 }
 h1{
 text-align: center;}
+.hidetext { -webkit-text-security: disc; /* Default */ }
+
 	</style>
 
 
@@ -84,11 +86,11 @@ text-align: center;}
            <td><c:out value="${policy_holder.PH_key}" /></td>
                     <td><img src="<c:out value="${policy_holder.statePicture}" />" width="40" height="25"/></td>
            
-      				<td><a href="/Capstoneproject2/policyholderprofile?PH_key=<c:out value='${policy_holder.PH_key}' />"><c:out value="${policy_holder.firstName}" /></a></td>
+      				<td><a class="btn btn-light" href="/Capstoneproject2/policyholderprofile?PH_key=<c:out value='${policy_holder.PH_key}' />"><c:out value="${policy_holder.firstName}" /></td>
                     <td><c:out value="${policy_holder.middleName}" /></td>
                     <td><c:out value="${policy_holder.lastName}" /></td>
                     <td><c:out value="${policy_holder.DOB}" /></td>
-                    <td><c:out value="${policy_holder.password}" /></td>
+                    <td class="hidetext"><c:out value="${policy_holder.password}" /></td>
                     <td><c:out value="${policy_holder.emailAddress}" /></td>
                     <td><c:out value="${policy_holder.type}" /></td>
                     

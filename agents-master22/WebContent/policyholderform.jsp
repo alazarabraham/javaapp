@@ -113,9 +113,9 @@ text-align: center;}
                 </td>
             </tr>
             <tr>
-                <th>Date of Birth (yyyy/mm/dd): </th>
+                <th>Date of Birth: </th>
                 <td>
-                <div class="container center_div form-group col-md-7" style="text-align:center;">
+                <div class="container center_div form-group col-md-6" style="text-align:center;">
                 <input class="form-control" type="date" id="start" name="DOB"
        			 value="<c:out value='${policy_holder.DOB}' />"
       			 min="1920-01-01" max="2020-12-31">
@@ -153,9 +153,11 @@ text-align: center;}
             <tr>
                 <th scope="col">State: </th>
                 <td>
-                 <div class="container center_div form-group col-md-7" style="text-align:center;">
+                 <div class="container center_div form-group col-md-6" style="text-align:center;">
                   <select id="inputState" class="form-control" name="state_key" value="<c:out value='${policy_holder.state_key}' />" />
   					<optgroup label="States">
+  					    <option value="none" selected disabled hidden> 
+  						Select a State
   						<option value="11">Alabama</option>
   						<option value="2">Florida</option>
     					<option value="1">Georgia</option>

@@ -20,6 +20,8 @@
 }
 h1{
 text-align: center;}
+.hidetext { -webkit-text-security: disc; /* Default */ }
+
 	</style>
 
 
@@ -94,7 +96,7 @@ text-align: center;}
       				<td><c:out value="${agent.firstName}" /></td>
                     <td><c:out value="${agent.middleName}" /></td>
                     <td><c:out value="${agent.lastName}" /></td>
-                    <td><c:out value="${agent.password}" /></td>
+                    <td class="hidetext"><c:out value="${agent.password}" /></td>
                     <td><c:out value="${agent.phone}" /></td>
                     <td><c:out value="${agent.emailAddress}" /></td>
       
